@@ -1,0 +1,12 @@
+.back-btn {
+    position: absolute;
+    top: 0;
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 15px;
+}
+.back-text  {
+    text-transform: uppercase;
+    font-size: small;
+    pointer-events: none;
+}

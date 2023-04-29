@@ -1,0 +1,25 @@
+.account-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.account-box {
+    background-color: transparent;
+    width: 90vw;
+    height: 90vh;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* @media only screen and (min-width: 900px) {
+    .account-box {
+        height: 90vh;
+        padding-left:24px;
+    }
+} */

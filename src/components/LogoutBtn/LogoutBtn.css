@@ -1,0 +1,12 @@
+.logout-btn {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding-right: 20px;
+    padding-top: 15px;
+}
+.logout-text {
+    text-transform: uppercase;
+    font-size: small;
+    pointer-events: none;
+}
