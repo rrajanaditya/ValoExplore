@@ -17,6 +17,12 @@ const Login = (props) => {
     const setUsername = props.setUsername
     const [password, setPassword] = useState("");
     useEffect(() => {
+        if (params.username) {
+            setUsername(params.username)
+            props.setHistory(true)
+            navigate('/account')
+            return;
+        }
         const keyDownHandler = event => {
             if (event.key === 'Enter') {
                 event.preventDefault();
@@ -85,11 +91,7 @@ const Login = (props) => {
         })
     }
     let params = useParams()
-    if (params.username) {
-        setUsername(params.username)
-        props.setHistory(true)
-        navigate('/account')
-    }
+    
     return (
         <div className="login-container">
             <div className="login-box">

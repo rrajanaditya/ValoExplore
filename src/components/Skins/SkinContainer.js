@@ -18,7 +18,7 @@ const SkinContainer = (props) => {
                 password: ""
             }).then((res) => {
                 props.isStore ?
-                    setstoreData(res.data.historyData.storeData)
+                    setstoreData({ 'message': 'To check store data login to the account.' })
                     :
                     setskinData(res.data.historyData.skinData);
             }).catch(() => {
@@ -32,7 +32,6 @@ const SkinContainer = (props) => {
                     password: ""
                 }).then((res) => {
                     setstoreData(res.data.storeData);
-                    // setUserData(res.data.userData);
                 }).catch(() => {
                     navigate("/")
                     alert("Error in auth! Login again!")
@@ -43,7 +42,6 @@ const SkinContainer = (props) => {
                     password: ""
                 }).then((res) => {
                     setskinData(res.data.skinData);
-                    // setUserData(res.data.userData);
                 }).catch(() => {
                     navigate("/")
                     alert("Error in auth! Login again!")
@@ -61,10 +59,10 @@ const SkinContainer = (props) => {
                         return <Skin key={index} name={key} img={skinData[key].skinImage} vp={skinData[key].price} />
                     })
                     :
-
-                    storeData.store?.map((skin, index) => {
-                        return <Skin key={index} name={skin['skinName']} img={skin['skinImage']} vp={skin['price']} />
-                    })
+                    storeData.message ? <div className='saved-store-error'>{ storeData.message}</div> :
+                        storeData.store?.map((skin, index) => {
+                            return <Skin key={index} name={skin['skinName']} img={skin['skinImage']} vp={skin['price']} />
+                        })
             }
             {!props.history ? <LogoutBtn setUsername={props.setUsername} /> : null}
             <BackBtn />

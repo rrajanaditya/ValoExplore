@@ -1,23 +1,18 @@
 import React from 'react'
 import './Share.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCopy } from '@fortawesome/free-solid-svg-icons'
 
 const Share = (props) => {
-    const link = `${window.location.origin.toString()}/${props.username}`
+    const link = `${window.location.origin.toString()}/savedaccount/${props.username}`
     return (
         <div className="share-container">
-            <div className="share-box">
-                <div>
-                    Here is your link:
-                </div>
-                <br />
-                <div>
-                    <FontAwesomeIcon icon={faCopy} style={{ paddingRight: '16px' }}
-                        onClick={() => { navigator.clipboard.writeText(link); }} />
-                    {link}
-                </div>
+
+            <div className='share-text'>
+                Here is your link:
             </div>
+            <div className='share-link'>
+                {link}
+            </div>
+            <div className='share-copy' onClick={() => { navigator.clipboard.writeText(link); alert('Copied link to clipboard.')}}>Copy</div>
         </div>
     )
 }
